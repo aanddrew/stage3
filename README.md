@@ -15,3 +15,13 @@ files using your own textures.
 
 I plan on expanding this so that I can use it in many different projects in the 
 future. I will definitely add some documentation at some point.
+
+Here's some screenshots.
+
+This is what you see upon entering the example.cpp
+![Alt text](screenshots/screen1.png?raw=true "Hello")
+
+These are just other ones
+![Alt text](screenshots/screen2.png?raw=true "Easter Egg Found")
+
+![Alt text](screenshots/screen3.png?raw=true "Nope, there isn't one here")

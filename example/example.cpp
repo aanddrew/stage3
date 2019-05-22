@@ -110,7 +110,7 @@ int main()
     shader.bind();
 
     //drawing first mesh
-    texture.bind();
+    tex.bind();
     //in order to have the objects in different places, 
     //we must translate them with a different model vector
     shader.setUniform("model", glm::translate(glm::mat4(1.0), glm::vec3(2.0f, 0.0f, 0.0f)));
