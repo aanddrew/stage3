@@ -3,6 +3,8 @@ Hello all.
 
 This is a little project I've been working on to teach myself OpenGL.
 
+[Here's a video showcasing the project.](https://www.youtube.com/watch?v=jme4-1odv0M)
+
 
 It is a 3d graphics engine that uses SDL and OpenGL.
 
