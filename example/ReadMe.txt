@@ -7,12 +7,13 @@ The executable is a.out - so type ./a.out to run it.
 
 Dependencies:
 SDL2: libsdl2-dev
-OpenGl: libglew-dev
+OpenGl: libglew-dev freeglut3-dev
 OpenGL mathematics (glm): libglm-dev 
 
 If you are on a debian based distro just type this to install them:
 
-sudo apt-get install libsdl2-dev libglew-dev libglm-dev
+sudo apt-get install libsdl2-dev libglew-dev freeglut3-dev libglm-dev 
+
 
 ===WINDOWS===
 I actually don't really know.
