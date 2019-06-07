@@ -3,7 +3,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
-CameraController::CameraController(Camera* camIn)
+CameraController::CameraController(s3::Camera* camIn)
 {
 	camera = camIn;
 	for(int i = 0; i < NUM_MOVES; i++)

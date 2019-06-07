@@ -3,6 +3,8 @@
 #include <iostream>
 
 #include <glm/gtc/quaternion.hpp>
+namespace s3
+{
 
 Camera::Camera()
 {
@@ -70,3 +72,5 @@ glm::vec3 Camera::getForward() {return forward;}
 glm::vec3 Camera::getRight() {return right;}
 glm::vec3 Camera::getUp() {return up;}
 glm::vec3 Camera::getPos() {return pos;}
+
+}

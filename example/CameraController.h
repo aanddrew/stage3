@@ -6,7 +6,7 @@
 class CameraController
 {
 public:
-	CameraController(Camera* camIn);
+	CameraController(s3::Camera* camIn);
 	void keyInput(int key , bool pressed);
 	void mouseInput(int dx, int dy);
 
@@ -26,7 +26,7 @@ private:
 
 	bool moving[6];
 
-	Camera* camera;
+	s3::Camera* camera;
 };
 
 #endif

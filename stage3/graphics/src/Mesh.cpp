@@ -4,6 +4,8 @@
 #include <fstream>
 #include <sstream>
 
+#ifndef SPLIT_H
+#define SPLIT_H
 //helpful for parsing the file, thanks to my intro cs course for this function
 void split(std::string temp, std::string words[], char del, int maxWords)
 {
@@ -19,12 +21,16 @@ void split(std::string temp, std::string words[], char del, int maxWords)
 	}
 }
 
+#endif
+
 //supposed to read in obj files exporrted from blender
 //with the following settings:
 /*
 include UV
 triangulate faces
 */
+namespace s3
+{
 Mesh::Mesh(std::string fileName)
 {
 	std::ifstream inFile(fileName);
@@ -139,14 +145,18 @@ Mesh::Mesh(std::string fileName)
 	this->numVertices = vertex_buffer_vector.size()/3;
 	
 	//then we load our vaos and vbos
-	loadVAOandVBOs();
+	// loadVAOandVBOs();
 }
 
 //the default constructor just makes a cube...
 Mesh::Mesh()
 {
 	turnIntoCube();
+	// loadVAOandVBOs();
+}
 
+void Mesh::load()
+{
 	loadVAOandVBOs();
 }
 
@@ -184,14 +194,17 @@ void Mesh::loadVAOandVBOs()
 	// std::cout << "vertex_buffer_vector.size(): " << vertex_buffer_vector.size() << std::endl;
 
 	//================NORMALS FROM FILE=================
-	glGenBuffers(1, &normalBufferID);
-	glBindBuffer(GL_ARRAY_BUFFER, normalBufferID);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float)*3*numVertices,
-		normal_buffer_data, GL_STATIC_DRAW);
+	if (normal_buffer_data != nullptr)
+	{
+		glGenBuffers(1, &normalBufferID);
+		glBindBuffer(GL_ARRAY_BUFFER, normalBufferID);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float)*3*numVertices,
+			normal_buffer_data, GL_STATIC_DRAW);
 
-	glEnableVertexAttribArray(2);
-	glBindBuffer(GL_ARRAY_BUFFER, normalBufferID);
-	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
+		glEnableVertexAttribArray(2);
+		glBindBuffer(GL_ARRAY_BUFFER, normalBufferID);
+		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	}
 	//=================================================
 }
 
@@ -307,6 +320,7 @@ void Mesh::turnIntoCube()
 	  0.0f, 1.0f,
 	  0.0f, 0.0f,
 	};
+
 	this->numVertices = 36;
 }
 
@@ -318,15 +332,26 @@ Mesh::~Mesh()
 	// delete texture_coord_buffer_data;
 }
 
-void Mesh::bind()
+void Mesh::bind() const
 {
 	//vao contains the buffers with all the data
 	//neat little thing opengl thought of there
 	glBindVertexArray(0);
 	glBindVertexArray(vertexArrayObjectID);
 }
-void Mesh::draw()
+void Mesh::draw() const
 {
 	//our data is stored as triangulated faces in format
 	glDrawArrays(GL_TRIANGLES, 0, numVertices);
+}
+
+const std::vector<GLfloat>& Mesh::getVertices()
+{
+	return vertex_buffer_vector;
+}
+const std::vector<GLfloat>& Mesh::getNormals()
+{
+	return normal_buffer_vector;
+}
+
 }

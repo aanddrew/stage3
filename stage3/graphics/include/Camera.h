@@ -4,6 +4,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+namespace s3
+{
 class Camera
 {
 public:
@@ -31,5 +33,6 @@ private:
 	glm::vec3 right;
 	glm::vec3 up;
 };
+}
 
 #endif

@@ -3,6 +3,8 @@
 #include <GL/glew.h>
 #include <fstream>
 
+namespace s3
+{
 /*
 Reads a file and converts it to a string.
 */
@@ -143,3 +145,5 @@ void Shader::setUniform(const std::string& name, const glm::mat4& matrix)
 
 //incase you want to do something with the program
 GLuint Shader::getProgramID() {return programID;}
+
+}//end namespace

@@ -23,26 +23,33 @@ int main()
   s3::Window window("stage3 rules", WIDTH, HEIGHT);
   SDL_Window* sdlWindow = window.getSDLWindow();
 
+  //enable v-sync, this makes the movement take place at a reasonable speed
+  SDL_GL_SetSwapInterval(1);
+
   //==============END OF WINDOW CREATION==============
 
   //=========creation of shader, texture, mesh========
 
-  Shader shader("res/shaders/basicVertexShader.GLSL", 
+  s3::Shader shader("res/shaders/basicVertexShader.GLSL", 
     "res/shaders/basicFragmentShader.GLSL");
   shader.bind();
 
 
-  Texture tex("res/textures/earth_squished.png");
+  s3::Texture tex("res/textures/earth_squished.png");
+  tex.load();
   tex.bind();
 
-  Mesh mesh("res/models/normalSphere.obj");
+  s3::Mesh mesh("res/models/normalSphere.obj");
+  mesh.load();
   mesh.bind();
 
 
-  Texture tex2("res/textures/cobbles01.png");
+  s3::Texture tex2("res/textures/cobbles01.png");
+  tex2.load();
   tex2.bind();
 
-  Mesh mesh2("res/models/normalCube.obj");
+  s3::Mesh mesh2("res/models/normalMonkey.obj");
+  mesh2.load();
 
   //===========END TEXTURE & SHADER STUFF=============
 
@@ -51,7 +58,7 @@ int main()
   shader.createUniform("perspective");
   shader.setUniform("perspective", Projection);
 
-  Camera camera;
+  s3::Camera camera;
   CameraController camControl(&camera);
 
   shader.createUniform("view");

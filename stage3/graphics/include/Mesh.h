@@ -4,7 +4,8 @@
 #include <GL/glew.h>
 #include <string>
 #include <vector>
-
+namespace s3
+{
 class Mesh
 {
 public:
@@ -12,8 +13,13 @@ public:
 	~Mesh();
 	Mesh();
 
-	void bind();
-	void draw();
+	void load();
+
+	void bind() const;
+	void draw() const;
+
+	const std::vector<GLfloat>& getVertices();
+	const std::vector<GLfloat>& getNormals();
 
 	//make these private later
 	//vertices
@@ -41,4 +47,5 @@ private:
 
 	unsigned int numVertices;
 };
+}
 #endif

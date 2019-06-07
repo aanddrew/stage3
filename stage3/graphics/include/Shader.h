@@ -6,7 +6,8 @@
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
-
+namespace s3
+{
 class Shader
 {
 public:
@@ -25,5 +26,6 @@ private:
 
 	std::unordered_map<std::string, GLuint> uniforms;
 };
+}
 
 #endif
