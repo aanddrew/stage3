@@ -31,7 +31,7 @@ triangulate faces
 */
 namespace s3
 {
-Mesh::Mesh(std::string fileName)
+Mesh::Mesh(const std::string& fileName)
 {
 	std::ifstream inFile(fileName);
 

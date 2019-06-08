@@ -9,7 +9,7 @@ namespace s3
 class Mesh
 {
 public:
-	Mesh(std::string fileName);
+	Mesh(const std::string& fileName);
 	~Mesh();
 	Mesh();
 

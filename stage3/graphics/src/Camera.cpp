@@ -22,6 +22,7 @@ glm::mat4 Camera::getMatrix()
 }
 
 //pitch, done via local coordinates
+//the angle is in radians
 void Camera::rotateUp(float dTheta)
 {	
 	//rotation using quaternions
@@ -36,6 +37,7 @@ void Camera::rotateUp(float dTheta)
 }
 
 //yaw - done via global coordinates
+//the angle is in radians
 void Camera::rotateRight(float dTheta)
 {
 	//rotation using quaternions

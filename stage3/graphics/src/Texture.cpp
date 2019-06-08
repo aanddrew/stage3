@@ -12,7 +12,7 @@ Texture::Texture()
 	this->data = nullptr;
 }
 
-Texture::Texture(std::string fileName)
+Texture::Texture(const std::string& fileName)
 {
 	this->data = stbi_load(fileName.c_str(), &width, &height, &numChannels, 0);
 
