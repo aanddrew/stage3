@@ -10,7 +10,6 @@ class Mesh
 {
 public:
 	Mesh(const std::string& fileName);
-	~Mesh();
 	Mesh();
 
 	void load();
@@ -25,7 +24,6 @@ public:
 	//vertices
 
 private:
-	void turnIntoCube();
 	void loadVAOandVBOs();
 
 	//VAO of this mesh on the gpu

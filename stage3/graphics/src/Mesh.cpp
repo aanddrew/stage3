@@ -39,8 +39,6 @@ Mesh::Mesh(const std::string& fileName)
 	if(!inFile.is_open())
 	{
 		std::cerr << "ERROR: CANNOT OPEN MESH FILE: '" << fileName << "'!!!" << std::endl;
-		std::cerr << "TURNING MESH INTO A CUBE!" << std::endl;
-		turnIntoCube();
 	}
 	else
 	{
@@ -151,7 +149,6 @@ Mesh::Mesh(const std::string& fileName)
 //the default constructor just makes a cube...
 Mesh::Mesh()
 {
-	turnIntoCube();
 	// loadVAOandVBOs();
 }
 
@@ -206,130 +203,6 @@ void Mesh::loadVAOandVBOs()
 		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	}
 	//=================================================
-}
-
-//this is literally just hard coded data of a cube mesh 
-//this is residue from the original testing parts of this program where I had 
-//to input all the data manually.
-void Mesh::turnIntoCube()
-{
-		vertex_buffer_data = new GLfloat[108] 
-		{
-	  //face close to camera
-	   0.5f, 0.5f,-0.5f, //0
-	  -0.5f, 0.5f,-0.5f, //1
-	   0.5f,-0.5f,-0.5f, //2
-
-	  0.5f,-0.5f,-0.5f, //2
-	  -0.5f, 0.5f,-0.5f, //1
-	  -0.5f,-0.5f,-0.5f, //3
-
-	  //face far from camera
-	   0.5f, 0.5f, 0.5f, //4
-	  -0.5f, 0.5f, 0.5f, //5
-	   0.5f,-0.5f, 0.5f, //6
-
-	   0.5f,-0.5f, 0.5f, //6
-	   -0.5f, 0.5f, 0.5f, //5
-	   -0.5f,-0.5f, 0.5f, //7
-
-	  //left face
-	   -0.5f,-0.5f,-0.5f, //3
-	   -0.5f, 0.5f,-0.5f, //1
-	   -0.5f,-0.5f, 0.5f, //7
-
-	   -0.5f,-0.5f, 0.5f, //7
-	   -0.5f, 0.5f,-0.5f, //1
-	   -0.5f, 0.5f, 0.5f, //5
-
-	  //top face
-	   -0.5f, 0.5f,-0.5f, //1
-	   0.5f, 0.5f,-0.5f, //0
-	   -0.5f, 0.5f, 0.5f, //5
-
-	   -0.5f, 0.5f, 0.5f, //5
-	   0.5f, 0.5f,-0.5f, //0
-	   0.5f, 0.5f, 0.5f, //4
-
-	   //right face
-	   0.5f, 0.5f,-0.5f, //0
-	   0.5f,-0.5f,-0.5f, //2
-	   0.5f, 0.5f, 0.5f, //4
-
-	   0.5f, 0.5f, 0.5f, //4
-	   0.5f,-0.5f,-0.5f, //2
-	   0.5f,-0.5f, 0.5f, //6
-
-	   //bot face
-	   0.5f,-0.5f,-0.5f, //2
-	   -0.5f,-0.5f,-0.5f, //3
-	   0.5f,-0.5f, 0.5f, //6
-
-	   0.5f,-0.5f, 0.5f, //6
-	   -0.5f,-0.5f,-0.5f, //3
-	   -0.5f,-0.5f, 0.5f, //7
-		};
-
-		texture_coord_buffer_data = new GLfloat[72]
-		{
-	  1.0f, 1.0f,
-	  0.0f, 1.0f, // face closest to camera
-	  1.0f, 0.0f,
-
-	  1.0f, 0.0f,
-	  0.0f, 1.0f,
-	  0.0f, 0.0f,
-	  //the data is just copy/pasted from here on out
-	  1.0f, 1.0f,
-	  0.0f, 1.0f, 
-	  1.0f, 0.0f,
-
-	  1.0f, 0.0f,
-	  0.0f, 1.0f,
-	  0.0f, 0.0f,
-
-	  1.0f, 1.0f,
-	  0.0f, 1.0f, 
-	  1.0f, 0.0f,
-
-	  1.0f, 0.0f,
-	  0.0f, 1.0f,
-	  0.0f, 0.0f,
-
-	  1.0f, 1.0f,
-	  0.0f, 1.0f, 
-	  1.0f, 0.0f,
-
-	  1.0f, 0.0f,
-	  0.0f, 1.0f,
-	  0.0f, 0.0f,
-
-	  1.0f, 1.0f,
-	  0.0f, 1.0f, 
-	  1.0f, 0.0f,
-
-	  1.0f, 0.0f,
-	  0.0f, 1.0f,
-	  0.0f, 0.0f,
-
-	  1.0f, 1.0f,
-	  0.0f, 1.0f, 
-	  1.0f, 0.0f,
-
-	  1.0f, 0.0f,
-	  0.0f, 1.0f,
-	  0.0f, 0.0f,
-	};
-
-	this->numVertices = 36;
-}
-
-Mesh::~Mesh()
-{
-	//new was called in the constructor for these data pieces
-	//might move these into std::vector containers later though.
-	// delete vertex_buffer_data;
-	// delete texture_coord_buffer_data;
 }
 
 void Mesh::bind() const
