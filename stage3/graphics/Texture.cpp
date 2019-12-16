@@ -1,5 +1,5 @@
-#include "../include/Texture.h"
-#include "../stbi/stb_image.h"
+#include "Texture.h"
+#include "stbi/stb_image.h"
 
 #include <iostream>
 #include <GL/glew.h>

@@ -1,10 +1,10 @@
 #ifndef STAGE3_H
 #define STAGE3_H
 
-#include "graphics/include/Shader.h"
-#include "graphics/include/Mesh.h"
-#include "graphics/include/Texture.h"
-#include "graphics/include/Camera.h"
+#include "graphics/Shader.h"
+#include "graphics/Mesh.h"
+#include "graphics/Texture.h"
+#include "graphics/Camera.h"
 
 #include "Window.h"
 

@@ -1,7 +1,7 @@
 #ifndef CAMERACONTROLLER_H
 #define CAMERACONTROLLER_H
 
-#include "../stage3/graphics/include/Camera.h"
+#include "../stage3/graphics/Camera.h"
 
 class CameraController
 {

@@ -1,5 +1,5 @@
 #the files to compile as part of project
-OBJS = example.cpp ../stage3/graphics/src/*.cpp ../stage3/graphics/stbi/stb_image.c CameraController.cpp ../stage3/Window.cpp
+OBJS = example.cpp ../stage3/graphics/*cpp ../stage3/graphics/stbi/stb_image.c CameraController.cpp ../stage3/Window.cpp
 
 #the compiler we will use
 CC = g++
